@@ -3,120 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tumodular | Arquitectura de Alta Gama con Contenedores</title>
+    <title>TuModular | Arquitectura Modular de Alta Gama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --oscuro: #1A1D20; --claro: #F8F9FA; --blanco: #FFFFFF; --acento: #C5A880; --texto: #4A4A4A; --verde: #27AE60; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--claro); color: var(--texto); line-height: 1.6; }
-        .banner-promo { background-color: var(--oscuro); color: var(--blanco); text-align: center; padding: 10px 20px; font-size: 0.95rem; border-bottom: 2px solid var(--acento); position: sticky; top: 0; z-index: 1000; }
-        .navbar { background-color: var(--blanco); padding: 15px 20px; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.6rem; font-weight: 700; color: var(--oscuro); letter-spacing: 1px; }
-        .logo span { color: var(--acento); }
-        .hero { background: linear-gradient(rgba(26, 29, 32, 0.8), rgba(26, 29, 32, 0.8)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--blanco); padding: 20px; }
-        .btn-cta { background-color: var(--acento); color: var(--oscuro); padding: 12px 30px; text-decoration: none; font-weight: bold; text-transform: uppercase; border-radius: 4px; margin-top: 20px; }
-        .contenedor { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        h2 { text-align: center; text-transform: uppercase; margin-bottom: 20px; color: var(--oscuro); }
-        .bloque-destacado { background-color: var(--oscuro); color: var(--blanco); padding: 30px; border-radius: 8px; border-left: 5px solid var(--acento); margin: 40px 0; }
-        .tabla-modelos { width: 100%; border-collapse: collapse; background: var(--blanco); margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .tabla-modelos th { background: var(--oscuro); color: white; padding: 15px; text-align: left; }
-        .tabla-modelos td { padding: 15px; border-bottom: 1px solid #EEE; }
-        .precio { color: var(--verde); font-weight: bold; }
-        .seccion-contacto { background-color: var(--blanco); padding: 60px 20px; }
-        .grid-contacto { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .formulario-contacto { background-color: var(--claro); padding: 30px; border-radius: 6px; border: 1px solid #DDD; }
-        .grupo-form { margin-bottom: 15px; }
-        .grupo-form label { display: block; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
-        .grupo-form input, .grupo-form select, .grupo-form textarea { width: 100%; padding: 10px; border: 1px solid #CCC; border-radius: 4px; background: white; }
-        .grupo-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .btn-enviar { background-color: var(--oscuro); color: white; width: 100%; padding: 12px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .btn-flotante-llamada { position: fixed; bottom: 20px; right: 20px; background: var(--verde); color: white; padding: 15px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .overlay-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 3000; }
-        .popup-box { background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; text-align: center; }
-        footer { background: var(--oscuro); color: #888; text-align: center; padding: 20px; font-size: 0.8rem; }
+        :root {
+            --oro: #d4af37;
+            --negro: #0a0a0a;
+            --gris-oscuro: #1a1a1a;
+            --blanco: #ffffff;
+            --texto: #a1a1aa;
+        }
+
+        body { margin: 0; font-family: 'Urbanist', sans-serif; background-color: var(--negro); color: var(--blanco); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        header {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('IMG_20260524_182435.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5rem; margin: 0; letter-spacing: 2px; }
+        .hero-content h1 span { color: var(--oro); }
+
+        /* MODELOS */
+        .section-title { text-align: center; margin: 100px 0 50px; }
+        .section-title h2 { font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 10px; }
+
+        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .card { background: var(--gris-oscuro); border: 1px solid #262626; border-radius: 2px; overflow: hidden; transition: 0.4s; position: relative; }
+        .card:hover { border-color: var(--oro); transform: translateY(-10px); }
+        .card img { width: 100%; height: 280px; object-fit: cover; filter: brightness(0.9); transition: 0.5s; }
+        .card-content { padding: 30px; }
+        .card h3 { color: var(--oro); font-family: 'Playfair Display'; font-size: 2rem; margin: 0 0 15px; }
+        .precio { font-size: 1.8rem; font-weight: 600; color: #fff; margin-bottom: 15px; display: block; }
+
+        /* GALERÍA DE INTERIORES */
+        .galeria-interiores { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 80px 0; }
+        .galeria-item { position: relative; overflow: hidden; height: 400px; border: 1px solid #262626; }
+        .galeria-item.wide { grid-column: span 2; height: 500px; }
+        .galeria-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .galeria-item:hover img { transform: scale(1.05); }
+        .galeria-label { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.7); padding: 5px 15px; border-left: 3px solid var(--oro); color: var(--oro); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
+
+        /* INFO PREMIUM */
+        .info-premium { background: #111; padding: 100px 0; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+        .feature-box { text-align: center; max-width: 850px; margin: 0 auto; }
+        .feature-box h2 { font-family: 'Playfair Display'; font-size: 2.5rem; color: var(--oro); margin-bottom: 30px; }
+
+        /* FORMULARIO */
+        .form-section { padding: 100px 0; text-align: center; }
+        form { max-width: 550px; margin: 50px auto; display: flex; flex-direction: column; gap: 20px; }
+        input, textarea { padding: 20px; background: #000; border: 1px solid #333; color: white; font-family: 'Urbanist'; font-size: 1rem; border-radius: 0; }
+        input:focus, textarea:focus { border-color: var(--oro); outline: none; }
+        button { padding: 22px; background: var(--oro); color: black; font-weight: 700; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; letter-spacing: 2px; }
+        button:hover { background: #fff; }
+
+        footer { padding: 60px; text-align: center; color: #444; border-top: 1px solid #1a1a1a; font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-    <div class="banner-promo">🚚 Código <strong>GALEANO</strong>: Descuento en transporte para Galicia y España.</div>
-    <nav class="navbar"><div class="logo">tu<span>modular</span></div></nav>
+<header>
+    <div class="hero-content">
+        <p style="letter-spacing: 8px; color: var(--oro); margin-bottom: 20px; font-weight: 300;">EXCLUSIVIDAD MODULAR</p>
+        <h1>TuModular<span>.</span></h1>
+        <p style="font-size: 1.2rem; font-weight: 300; opacity: 0.8;">Arquitectura de Autor • Estándar de Lujo • 1.490€/m²</p>
+    </div>
+</header>
 
-    <header class="hero">
-        <h1>Viviendas de Acero con <span>tumodular</span></h1>
-        <p>Alta gama, rapidez industrial y sostenibilidad real con base de contenedores.</p>
-        <a href="#contacto" class="btn-cta">Cita con ASESORES COMERCIALES</a>
-    </header>
+<section class="container">
+    <div class="section-title">
+        <h2>Colección 2024</h2>
+        <p style="color: var(--texto); font-size: 1.2rem;">Modelos personalizables diseñados para la distinción.</p>
+    </div>
 
-    <main class="contenedor">
-        <div class="bloque-destacado">
-            <h3>No es prefabricado, es ingeniería de acero</h3>
-            <p>Usamos contenedores marítimos para crear estructuras infinitamente más resistentes que el cemento tradicional.</p>
-        </div>
-
-        <h2>Precios LLAVE EN MANO</h2>
-        <table class="tabla-modelos">
-            <thead><tr><th>Gama</th><th>m² aprox.</th><th>Precio desde</th></tr></thead>
-            <tbody>
-                <tr><td><strong>Línea Compact</strong></td><td>60-75 m²</td><td class="precio">89.000 €</td></tr>
-                <tr><td><strong>Línea Space</strong></td><td>90-115 m²</td><td class="precio">135.000 €</td></tr>
-                <tr><td><strong>Línea Cube</strong></td><td>+130 m²</td><td class="precio">180.000 €</td></tr>
-            </tbody>
-        </table>
-    </main>
-
-    <section class="seccion-contacto" id="contacto">
-        <div class="grid-contacto">
-            <div class="info">
-                <h3>Hola, soy Susana</h3>
-                <p>Escríbeme o solicita una cita telefónica para analizar tu parcela.</p>
-            </div>
-            <div class="formulario-contacto">
-                <form action="https://formspree.io/f/xgoqlwww" method="POST">
-                    <div class="grupo-form"><label>Asunto</label><input type="text" name="Asunto" required></div>
-                    <div class="grupo-form"><label>Nombre</label><input type="text" name="Nombre" required></div>
-                    <div class="grupo-form-row">
-                        <div class="grupo-form"><label>Email</label><input type="email" name="Email" required></div>
-                        <div class="grupo-form"><label>Teléfono</label><input type="tel" name="Teléfono"></div>
-                    </div>
-                    <div class="grupo-form-row">
-                        <div class="grupo-form">
-                            <label>¿Tiene terreno?</label>
-                            <select name="Terreno">
-                                <option value="si">Sí, en propiedad</option>
-                                <option value="no">No, lo busco</option>
-                                <option value="tramite">En trámites</option>
-                            </select>
-                        </div>
-                        <div class="grupo-form">
-                            <label>Preferencia llamada</label>
-                            <select name="Horario">
-                                <option value="email">Solo Email</option>
-                                <option value="manana">Mañana</option>
-                                <option value="tarde">Tarde</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="grupo-form"><label>Mensaje</label><textarea name="Mensaje" rows="3"></textarea></div>
-                    <button type="submit" class="btn-enviar">Enviar a Susana</button>
-                </form>
+    <div class="grid-modelos">
+        <div class="card">
+            <img src="IMG_20260524_203629.png" onmouseover="this.src='1779644537107.png'" onmouseout="this.src='IMG_20260524_203629.png'" alt="Compact Luxury 70m2">
+            <div class="card-content">
+                <h3>Compact Luxury</h3>
+                <p style="color: var(--oro); margin-bottom: 5px;">70 m² de Refinamiento</p>
+                <span class="precio">104.300 € <small style="opacity: 0.6;">+ IVA</small></span>
+                <p style="color: var(--texto);">Arquitectura optimizada. El estándar de lujo en formato compacto.</p>
             </div>
         </div>
-    </section>
 
-    <div class="btn-flotante-llamada" onclick="document.getElementById('miPopup').style.display='flex'">📞 ¡Te llamamos!</div>
-    <div class="overlay-popup" id="miPopup">
-        <div class="popup-box">
-            <h4 onclick="document.getElementById('miPopup').style.display='none'" style="cursor:pointer; position:absolute; top:10px; right:15px;">&times;</h4>
-            <h4>¿Te llamamos?</h4>
-            <form action="https://formspree.io/f/xgoqlwww" method="POST">
-                <input type="text" name="Nombre" placeholder="Tu Nombre" required style="width:100%; margin-bottom:10px; padding:10px;">
-                <input type="tel" name="Teléfono" placeholder="Tu Teléfono" required style="width:100%; margin-bottom:10px; padding:10px;">
-                <button type="submit" class="btn-enviar" style="background:var(--verde)">Solicitar ahora</button>
-            </form>
+        <div class="card">
+            <img src="IMG-20260524-WA0029.jpg" alt="Family Horizon 90m2">
+            <div class="card-content">
+                <h3>Family Horizon</h3>
+                <p style="color: var(--oro); margin-bottom: 5px;">90 m² de Confort</p>
+                <span class="precio">134.100 € <small style="opacity: 0.6;">+ IVA</small></span>
+                <p style="color: var(--texto);">Espacios fluidos diseñados para conectar con el entorno.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="IMG-20260524-WA0030.jpg" alt="Estate Zenith 120m2">
+            <div class="card-content">
+                <h3>Estate Zenith</h3>
+                <p style="color: var(--oro); margin-bottom: 5px;">120 m² de Exclusividad</p>
+                <span class="precio">178.800 € <small style="opacity: 0.6;">+ IVA</small></span>
+                <p style="color: var(--texto);">Nuestra villa insignia. La máxima expresión de TuModular.</p>
+            </div>
         </div>
     </div>
 
-    <footer><p>&copy; 2026 tumodular | jotanasu@gmail.com</p></footer>
+    <div class="section-title" style="margin-top: 120px;">
+        <h2>Interiores de Autor</h2>
+        <p style="color: var(--texto);">Detalles que definen un estilo de vida superior.</p>
+    </div>
+
+    <div class="galeria-interiores">
+        <div class="galeria-item">
+            <img src="IMG_20260525_171925.png" alt="Salón TuModular">
+            <div class="galeria-label">Salón Principal</div>
+        </div>
+        <div class="galeria-item">
+            <img src="IMG_20260525_171856.png" alt="Salón de noche">
+            <div class="galeria-label">Atmósfera Nocturna</div>
+        </div>
+        <div class="galeria-item wide">
+            <img src="IMG_20260524_222828.png" alt="Cocina y Comedor TuModular">
+            <div class="galeria-label">Cocina & Comedor Open Concept</div>
+        </div>
+        <div class="galeria-item wide">
+            <img src="IMG_20260524_182607.png" alt="Baño de lujo">
+            <div class="galeria-label">Baño de Autor</div>
+        </div>
+    </div>
+</section>
+
+<section class="info-premium">
+    <div class="container">
+        <div class="feature-box">
+            <h2>Proyectos Llave en Mano</h2>
+            <p style="font-size: 1.2rem;">Ofrecemos un servicio integral de acompañamiento técnico. Nuestro equipo de arquitectos lidera la gestión total: desde el diseño personalizado hasta la integración de su <strong>piscina infinity</strong>.</p>
+            <p style="color: var(--texto); margin-top: 25px; font-style: italic;">* Los honorarios de arquitectura se presupuestan de forma independiente para garantizar la transparencia total.</p>
+        </div>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <h2 style="font-family: 'Playfair Display'; font-size: 3rem;">Solicite Asesoría</h2>
+        <p style="font-size: 1.2rem; color: var(--texto);">Contacte con nuestra <strong>Asesora Comercial</strong> para iniciar su proyecto.</p>
+
+        <form>
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Email de contacto" required>
+            <textarea placeholder="Háblenos de su visión (Ubicación, metros deseados...)" rows="6"></textarea>
+            <button type="submit">Contactar con Asesoría</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>TUMODULAR | ARQUITECTURA MODULAR DE ALTA GAMA</p>
+    <p style="margin-top: 10px; opacity: 0.5;">©️ 2024 - Todos los diseños son personalizables.</p>
+</footer>
 
 </body>
 </html>
+
+
+
+
+
 
