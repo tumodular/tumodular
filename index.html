@@ -30,7 +30,7 @@
             background-attachment: scroll;
             padding: 20px;
         }
-        .hero-content { margin-top: 50px; } /* Mueve el texto hacia abajo */
+        .hero-content { margin-top: 50px; }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5rem; margin: 0; letter-spacing: 2px; }
         .hero-content h1 span { color: var(--oro); }
 
@@ -40,30 +40,24 @@
 
         .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background: var(--gris-oscuro); border: 1px solid #262626; border-radius: 2px; overflow: hidden; transition: 0.4s; }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card img { width: 100%; height: 250px; object-fit: cover; transition: 0.5s ease; cursor: pointer; }
         .card-content { padding: 30px; }
-        .card h3 { color: var(--oro); font-family: 'Playfair Display'; font-size: 2rem; margin: 0 0 15px; }
+        .card h3 { color: var(--oro); font-family: 'Playfair Display'; font-size: 2rem; margin: 0 0 5px; }
+        .subtitulo-modelo { color: var(--oro); font-weight: 600; margin-bottom: 15px; display: block; }
         .precio { font-size: 1.5rem; font-weight: 600; display: block; margin-bottom: 10px; }
 
         /* GALERÍA */
         .galeria-interiores { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 60px 0; }
         .galeria-item { position: relative; overflow: hidden; height: 350px; border: 1px solid #262626; }
         .galeria-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-        
-        /* En PC el santuario se verá mejor centrado */
-        @media (min-width: 768px) {
-            .galeria-item.wide img { object-position: center; } 
-        }
-
         .galeria-label { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.7); padding: 5px 15px; border-left: 3px solid var(--oro); color: var(--oro); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
 
-        /* MEDIA QUERIES */
         @media (min-width: 768px) {
             .galeria-interiores { grid-template-columns: repeat(2, 1fr); }
             .galeria-item.wide { grid-column: span 2; }
         }
         @media (max-width: 768px) {
-            header { height: 70vh; background-position: 70% center; } /* 70% desplaza el recorte de la cabecera */
+            header { height: 70vh; background-position: 70% center; }
             .hero-content { margin-top: 80px; }
             .hero-content h1 { font-size: 2.8rem; }
         }
@@ -95,25 +89,37 @@
 
     <div class="grid-modelos">
         <div class="card">
-            <img src="IMG_20260524_203629.png" alt="Compact Luxury">
+            <img src="IMG_20260524_203629.png" 
+                 onmouseover="this.src='1000018701.png'" 
+                 onmouseout="this.src='IMG_20260524_203629.png'" 
+                 alt="Compact Luxury">
             <div class="card-content">
                 <h3>Compact Luxury</h3>
+                <span class="subtitulo-modelo">70 m² de Refinamiento</span>
                 <span class="precio">104.300 €</span>
                 <p style="color: var(--texto);">Arquitectura optimizada y lujo compacto.</p>
             </div>
         </div>
         <div class="card">
-            <img src="IMG-20260524-WA0029.jpg" alt="Family Horizon">
+            <img src="IMG-20260524-WA0029.jpg" 
+                 onmouseover="this.src='IMG-20260524-WA0025.jpg'" 
+                 onmouseout="this.src='IMG-20260524-WA0029.jpg'" 
+                 alt="Family Horizon">
             <div class="card-content">
                 <h3>Family Horizon</h3>
+                <span class="subtitulo-modelo">90 m² de Confort</span>
                 <span class="precio">134.100 €</span>
                 <p style="color: var(--texto);">Espacios fluidos para conectar con el entorno.</p>
             </div>
         </div>
         <div class="card">
-            <img src="IMG-20260524-WA0030.jpg" alt="Estate Zenith">
+            <img src="IMG-20260524-WA0030.jpg" 
+                 onmouseover="this.src='IMG-20260524-WA0023.jpg'" 
+                 onmouseout="this.src='IMG-20260524-WA0030.jpg'" 
+                 alt="Estate Zenith">
             <div class="card-content">
                 <h3>Estate Zenith</h3>
+                <span class="subtitulo-modelo">120 m² de Exclusividad</span>
                 <span class="precio">178.800 €</span>
                 <p style="color: var(--texto);">Nuestra villa insignia de alta exclusividad.</p>
             </div>
