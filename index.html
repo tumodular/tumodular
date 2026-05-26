@@ -24,11 +24,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('IMG_20260524_182435.png');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG_20260524_182435.png');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-attachment: scroll;
+            padding: 20px;
         }
+        .hero-content { margin-top: 50px; } /* Mueve el texto hacia abajo */
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5rem; margin: 0; letter-spacing: 2px; }
         .hero-content h1 span { color: var(--oro); }
 
@@ -48,8 +50,10 @@
         .galeria-item { position: relative; overflow: hidden; height: 350px; border: 1px solid #262626; }
         .galeria-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
         
-        /* Ajuste específico para que el santuario no se corte tanto */
-        .galeria-item.wide img { object-position: bottom; } 
+        /* En PC el santuario se verá mejor centrado */
+        @media (min-width: 768px) {
+            .galeria-item.wide img { object-position: center; } 
+        }
 
         .galeria-label { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.7); padding: 5px 15px; border-left: 3px solid var(--oro); color: var(--oro); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
 
@@ -59,8 +63,9 @@
             .galeria-item.wide { grid-column: span 2; }
         }
         @media (max-width: 768px) {
-            header { height: 60vh; }
-            .hero-content h1 { font-size: 3rem; }
+            header { height: 70vh; background-position: 70% center; } /* 70% desplaza el recorte de la cabecera */
+            .hero-content { margin-top: 80px; }
+            .hero-content h1 { font-size: 2.8rem; }
         }
 
         /* INFO Y FORM */
