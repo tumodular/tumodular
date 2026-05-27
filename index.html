@@ -27,7 +27,6 @@
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG_20260524_182435.png');
             background-size: cover;
             background-position: center center;
-            background-attachment: scroll;
             padding: 20px;
         }
         .hero-content { margin-top: 50px; }
@@ -174,10 +173,10 @@
 <section class="form-section">
     <div class="container">
         <h2>Solicite Asesoría</h2>
-        <form>
-            <input type="text" placeholder="Nombre" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Mensaje" rows="4"></textarea>
+        <form action="https://formspree.io/f/xgoqlwww" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="mensaje" placeholder="Mensaje" rows="4"></textarea>
             <button type="submit">Contactar</button>
         </form>
     </div>
@@ -187,5 +186,4 @@
 
 </body>
 </html>
-
 
